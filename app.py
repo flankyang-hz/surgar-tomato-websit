@@ -10,8 +10,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 DB = 'site.db'
-if not os.path.exists(app.config[`upload_folder`]):
-    os.makedirs(app.config[`upload_folder`])
+
     
 def init_db():
     conn = sqlite3.connect(DB)
