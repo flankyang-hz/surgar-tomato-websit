@@ -3,12 +3,18 @@
 
     
 from flask import Flask, render_template, request, redirect, url_for
+from flask import send_from_directory
 import sqlite3, datetime, os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
+app.secret_key=
+`your_secure_random_key_here`#自定义一个随机字符串
 DB = 'site.db'
-
+if not
+os.path.exists(app.config[`upload_folder`]):
+    os.makedirs(app.config[`upload_folder`])
+    
 def init_db():
     conn = sqlite3.connect(DB)
     c = conn.cursor()
@@ -94,4 +100,4 @@ app.run(host="0.0.0.0", port=port)
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory('uploads', filename)
-from flask import send_from_directory
+
