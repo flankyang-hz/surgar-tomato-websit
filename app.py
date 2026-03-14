@@ -8,11 +8,9 @@ import sqlite3, datetime, os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
-app.secret_key=
-`your_secure_random_key_here`#自定义一个随机字符串
+
 DB = 'site.db'
-if not
-os.path.exists(app.config[`upload_folder`]):
+if not os.path.exists(app.config[`upload_folder`]):
     os.makedirs(app.config[`upload_folder`])
     
 def init_db():
