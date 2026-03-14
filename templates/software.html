@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人软件</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="page">
+<h1>个人软件</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+软件名称:
+<input type="text" name="name">
+选择软件:
+<input type="file" name="file">
+<button type="submit">上传软件</button>
+</form>
+
+<h2>软件下载</h2>
+<ul>
+{% for s in softwares %}
+<li>{{s[0]}} - <a href="/uploads/{{s[1]}}" download>下载</a></li>
+{% endfor %}
+</ul>
+
+<a href="/">返回首页</a>
+</div>
+</body>
+</html>

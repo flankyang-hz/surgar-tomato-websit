@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>留言本</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="page">
+<h1>留言本</h1>
+
+<form action="/add_message" method="post">
+名字:
+<input type="text" name="name">
+留言:
+<textarea name="message"></textarea>
+<button type="submit">提交留言</button>
+</form>
+
+<h2>留言记录</h2>
+
+{% for m in messages %}
+<div style="border-bottom:1px solid #ccc;margin-bottom:10px;">
+<b>{{m[0]}}</b> ({{m[2]}})
+<p>{{m[1]}}</p>
+</div>
+{% endfor %}
+
+<a href="/">返回首页</a>
+</div>
+
+</body>
+</html>
